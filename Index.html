@@ -2,7 +2,7 @@
 <html lang="zxx">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Project</title>
     <link
@@ -16,31 +16,51 @@
       href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
       rel="stylesheet"
     />
-    <!-- font-family: 'NanumSquareNeoLight';
-font-family: 'NanumSquareNeo';
-font-family: 'NanumSquareNeoBold';
-font-family: 'NanumSquareNeoExtraBold';
-font-family: 'NanumSquareNeoHeavy'; -->
+
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
   </head>
   <body>
     <!-- header -->
     <header>
       <div class="container">
         <h1>
-          <button>return;</button>
+          <!-- 헤더의 각 요소를 선택할 때 발생할 값을 
+                설정하고 연동하기위해 설정-->
+          <button
+            class="active"
+            data-animation-scroll="true"
+            data-target="#main"
+          >
+            Return;
+          </button>
         </h1>
         <nav>
           <ul>
-            <li><button>About</button></li>
-            <li><button>Features</button></li>
-            <li><button>Portfolio</button></li>
-            <li><button>Contact</button></li>
+            <li>
+              <button data-animation-scroll="true" data-target="#about">
+                About
+              </button>
+            </li>
+            <li>
+              <button data-animation-scroll="true" data-target="#features">
+                Features
+              </button>
+            </li>
+            <li>
+              <button data-animation-scroll="true" data-target="#portfolio">
+                Portfolio
+              </button>
+            </li>
+            <li>
+              <button data-animation-scroll="true" data-target="#contact">
+                Contact
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
+    <!-- //end header -->
     <!-- main -->
     <main id="main">
       <div class="container">
@@ -54,9 +74,215 @@ font-family: 'NanumSquareNeoHeavy'; -->
         </p>
         <button class="download">DOWNLOAD CV</button>
         <button class="mouse">
+          <!-- 마우스 아이콘 가져오기 -->
           <i class="fa-solid fa-computer-mouse"></i>
         </button>
       </div>
     </main>
+    <!-- main end-->
+    <!-- About me -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="title">
+          <h4>Who Am I</h4>
+          <h2>About Me</h2>
+        </div>
+        <div class="about-self">
+          <div class="left">
+            <img src="images/me_alone.jpg" alt="" />
+          </div>
+          <div class="right">
+            <h3>Hello, <strong>I'm Chang kyu</strong></h3>
+            <hr />
+            <p>
+              <br /><span>I'm Back-End Developer.</span><br /><br /><br />Lorem
+              ipsum dolor sit, amet consectetur adipisicing elit. Maiores
+              aliquam rerum ab deserunt voluptas explicabo voluptates numquam
+              libero, labore dolor iste voluptate eos ipsam odio ut quam sed
+              eaque repellat?
+            </p>
+            <div class="social">
+              <br />
+              <a href="https://github.com/kidchang93" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://www.instagram.com/ddoddo_booboo/" target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com/" target="_blank"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCqDmXuS4iF1NyrvGac30nCQ"
+                target="_blank"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About me end -->
+    <!-- What I Do -->
+    <section id="features" class="do">
+      <div class="container">
+        <div class="title">
+          <h4>Features</h4>
+          <h2>What I Do</h2>
+        </div>
+        <div class="do-me">
+          <div class="do-inner">
+            <div class="icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <div class="content">
+              <h3>HTML5</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                culpa magni laboriosam sit excepturi quibusdam adipisci, vero
+                debitis?
+              </p>
+            </div>
+          </div>
+          <div class="do-inner">
+            <div class="icon">
+              <i class="fa-brands fa-java"></i>
+            </div>
+            <div class="content">
+              <h3>JAVA</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                culpa magni laboriosam sit excepturi quibusdam adipisci, vero
+                debitis?
+              </p>
+            </div>
+          </div>
+          <div class="do-inner">
+            <div class="icon">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <div class="content">
+              <h3>CSS3</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                culpa magni laboriosam sit excepturi quibusdam adipisci, vero
+                debitis?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //end What I Do -->
+
+    <!-- Background -->
+    <div class="bg"></div>
+    <!-- Background end-->
+
+    <!-- PortFolio -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="title">
+          <h4>PORTFOLIOBACK</h4>
+          <h2>PortFolio</h2>
+        </div>
+        <div class="portfolio-me">
+          <div class="portfolio-inner">
+            <img src="images/Branding.jpg" alt="샘플이미지" />
+            <strong>BRANDING</strong>
+            <h3>Vehicle Design</h3>
+          </div>
+          <div class="portfolio-inner">
+            <img src="images/code.jpg" alt="샘플이미지" />
+            <strong>DEVELOPMENT</strong>
+            <h3>Back-End Dev</h3>
+          </div>
+          <div class="portfolio-inner">
+            <img src="images/music.jpg" alt="샘플이미지" />
+            <strong>MARKETING</strong>
+            <h3>Artist</h3>
+          </div>
+          <div class="portfolio-inner">
+            <img src="images/facebook.jpg" alt="샘플이미지" />
+            <strong>APP</strong>
+            <h3>FaceBook Clone</h3>
+          </div>
+          <div class="portfolio-inner">
+            <img src="images/netflix.jpg" alt="샘플이미지" />
+            <strong>APP</strong>
+            <h3>Netflix Clone</h3>
+          </div>
+          <div class="portfolio-inner">
+            <img src="images/amazon.jpg" alt="샘플이미지" />
+            <strong>WEB</strong>
+            <h3>Amazon</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PortFolio end -->
+
+    <!-- Contact With Me -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="title">
+          <h4>CONTACT</h4>
+          <h2>Contact With Me</h2>
+        </div>
+        <div class="contact-me">
+          <div class="left">
+            <div class="card">
+              <div class="icon">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <div class="info-text">
+                <h3>phone</h3>
+                <p>+82)10-9197-5225</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon">
+                <i class="fa-solid fa-envelope-open-text"></i>
+              </div>
+              <div class="info-text">
+                <h3>email</h3>
+                <p>lck930721@gmail.com</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </div>
+              <div class="info-text">
+                <h3>address</h3>
+                <p>304-707, Mangu-ro, Jungnang-gu, Seoul, Republic of Korea</p>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <!-- 폼 데이터를 서버로 보낼때 해당 데이터가 도착할 URL 명시
+            메서드를 pre와 post중 post로 지정하고 싶으나 여기선 안함-->
+            <form action="#">
+              <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" id="name" />
+              </div>
+              <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" id="email" />
+              </div>
+              <div class="form-group">
+                <label for="msg">message</label>
+                <textarea id="msg"></textarea>
+              </div>
+              <button>send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact With Me end  -->
+    <!-- 스크립트 삽입 -->
+    <script src="./script.js"></script>
   </body>
 </html>
