@@ -38,6 +38,12 @@ HTML5, CSS3, JSES6 를 이용하여
 
 ## Ⅲ) UX / UI
 
+![Main](https://github.com/kidchang93/webProject/assets/145524731/b499a2d8-96df-4d8a-b9f3-20259128e3c9)
+![About](https://github.com/kidchang93/webProject/assets/145524731/18d42664-3452-47fb-85aa-cfb76768eaf8)
+![Feature](https://github.com/kidchang93/webProject/assets/145524731/de4977b9-514e-4b40-8840-51f65009a8d5)
+![Background](https://github.com/kidchang93/webProject/assets/145524731/ec4a137f-0cd8-405b-9283-51464a706a88)
+![Portfolio](https://github.com/kidchang93/webProject/assets/145524731/7662bee0-0a9d-48f1-8942-0574825862cb)
+![Contact](https://github.com/kidchang93/webProject/assets/145524731/8ceb76af-d0a4-4314-99ab-1000cd4d235c)
 
 
 
