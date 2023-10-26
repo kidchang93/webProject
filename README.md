@@ -52,156 +52,148 @@ HTML5, CSS3, JSES6 를 이용하여
 
 ### CSS3에서 재밌게 구현한 기술
 
-- 마우스 위아래로 움직이는 애니메이션
+		- 마우스 위아래로 움직이는 애니메이션
+		
+		main button.mouse {
+			background-color: transparent; /* 배경 투명 설정 */
+			border: none; /* 테두리 없음 */
+			color: white; /* 텍스트 컬러 설정 */
+			font-size: 2rem; /* 글꼴 크기 설정 */
+			position: absolute; /* 절대 위치 설정 */
+			bottom: 1rem; /* 아래 여백 설정 */
+			left: 50%; /* 가운데 위치로부터 왼쪽 정렬 */
+			transform: translateX(-50%); /* X축 이동으로 중앙 정렬 */
+			animation: upDown 1s ease-in-out infinite; /* 애니메이션 설정 */
+			cursor: pointer; /* 커서를 포인터로 설정 */
+		}
+		/* 마우스 버튼 위아래로 움직이는 애니메이션 키프레임 설정 */
+		@keyframes upDown {
+			0% {
+				bottom: 1rem; /* 초기 위치 설정 */
+			}
+			50% {
+				bottom: 1.5rem; /* 중간 위치 설정 */
+			}
+			100% {
+				bottom: 1rem; /* 최종 위치 설정 */
+			}
+		}
+		
+		- 메인 타이틀 뒤의 수직선 스타일 설정
+		
+		main h2 span::after {
+			content: ''; /* 가상 요소 내용 없음 */
+			height: 40px; /* 세로 크기 설정 */
+			width: 3px; /* 가로 크기 설정 */
+			background-color: #fff; /* 배경 컬러 설정 */
+			display: inline-block; /* 인라인 블록 요소로 설정 */
+			animation: blink 0.7s ease-in-out infinite; /* 애니메이션 설정 */
+		}
+		
+		/* 수직선 깜빡임 애니메이션 키프레임 설정 */
+		@keyframes blink {
+			0% {
+				opacity: 1; /* 최대 불투명 설정 */
+			}
+			100% {
+				opacity: 0; /* 완전 투명 설정 */
+			}
+		}
+		
+		- 헤더 fixed 속성을 이용한 nav바의 효과 (앞서 말한 Gradient 사용의 설정)
+		
+		header.active {
+			background-color: rgba(0, 0, 0);
+			animation: fadeIn 0.5s ease-in-out;
+		}
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
 
-main button.mouse {
-  background-color: transparent; /* 배경 투명 설정 */
-  border: none; /* 테두리 없음 */
-  color: white; /* 텍스트 컬러 설정 */
-  font-size: 2rem; /* 글꼴 크기 설정 */
-  position: absolute; /* 절대 위치 설정 */
-  bottom: 1rem; /* 아래 여백 설정 */
-  left: 50%; /* 가운데 위치로부터 왼쪽 정렬 */
-  transform: translateX(-50%); /* X축 이동으로 중앙 정렬 */
-  animation: upDown 1s ease-in-out infinite; /* 애니메이션 설정 */
-  cursor: pointer; /* 커서를 포인터로 설정 */
-}
-/* 마우스 버튼 위아래로 움직이는 애니메이션 키프레임 설정 */
-@keyframes upDown {
-  0% {
-    bottom: 1rem; /* 초기 위치 설정 */
-  }
-  50% {
-    bottom: 1.5rem; /* 중간 위치 설정 */
-  }
-  100% {
-    bottom: 1rem; /* 최종 위치 설정 */
-  }
-}
-
-- 메인 타이틀 뒤의 수직선 스타일 설정
-
-main h2 span::after {
-  content: ''; /* 가상 요소 내용 없음 */
-  height: 40px; /* 세로 크기 설정 */
-  width: 3px; /* 가로 크기 설정 */
-  background-color: #fff; /* 배경 컬러 설정 */
-  display: inline-block; /* 인라인 블록 요소로 설정 */
-  animation: blink 0.7s ease-in-out infinite; /* 애니메이션 설정 */
-}
-
-/* 수직선 깜빡임 애니메이션 키프레임 설정 */
-@keyframes blink {
-  0% {
-    opacity: 1; /* 최대 불투명 설정 */
-  }
-  100% {
-    opacity: 0; /* 완전 투명 설정 */
-  }
-}
-
-- 헤더 fixed 속성을 이용한 nav바의 효과 (앞서 말한 Gradient 사용의 설정)
-
-header.active {
-  background-color: rgba(0, 0, 0);
-  animation: fadeIn 0.5s ease-in-out;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
+<br>
+		
 ### JSES6 에서 재밌게 구현한 기술
-
-- 텍스트 작성과 삭제 즉시 실행 함수
-
-(function () {
-  const spanEl = document.querySelector('main h2 span'); // span 태그로 접근
-  // 문자열 배열
-  const txtArr = [
-    'Web Publisher',
-    'Front-End Developer',
-    'Web UI Designer',
-    'UX Designer',
-    'Back-End Developer',
-  ];
-  let index = 0; // index값 초기화
-  let currentTxt = txtArr[index].split('');
-  // 텍스트 출력되는 함수
-  function writeTxt() {
-    spanEl.textContent += currentTxt.shift(); // 글자를 한 글자씩 추가
-    if (currentTxt.length !== 0) {
-      // 만약 currentTxt 배열에 더 남아있는 글자가 있다면
-      // 일정 시간 뒤에 writeTxt 함수를 다시 호출
-      setTimeout(writeTxt, Math.floor(Math.random() * 100));
-    } else {
-      // currentTxt 배열에 더 남아있는 글자가 없다면
-      // span 요소의 텍스트를 글자 단위로 쪼개서 currentTxt 배열에 저장
-      currentTxt = spanEl.textContent.split('');
-      // 3초(3000ms) 뒤에 deleteTxt 함수를 호출
-      setTimeout(deleteTxt, 3000);
-    }
-  }
-  // 텍스트 삭제되는 함수
-  function deleteTxt() {
-    // currentTxt 배열에서 마지막 글자를 제거
-    currentTxt.pop();
-    // 현재 배열의 글자들을 문자열로 결합하고 span 요소의 텍스트로 설정
-    spanEl.textContent = currentTxt.join('');
-    // currentTxt 배열에 더 남은 글자가 있다면
-    // 잠시 후에 deleteTxt 함수를 재귀적으로 호출하여 글자를 계속 지움
-    if (currentTxt.length !== 0) {
-      setTimeout(deleteTxt, Math.floor(Math.random() * 100));
-    } else {
-      // currentTxt 배열에 더 남은 글자가 없다면
-      // 다음 텍스트로 넘어가기 위해 index 변수 업데이트
-      index = (index + 1) % txtArr.length;
-      // 해당 인덱스에 해당하는 텍스트를 가져와서 currentTxt 배열로 설정
-      currentTxt = txtArr[index].split('');
-      // 다음 텍스트를 쓰기 시작
-      writeTxt();
-    }
-  }
-  writeTxt();
-})();
-
-
-- 애니메이션 스크롤 이동
-
-const animationMove = function (selector) {
-  // select 매개변수로 이동할 대상 요소 노드 가져오기
-  const targetEl = document.querySelector(selector);
-  // 현재 브라우저의 스크롤 정보(Y값)
-  const browserScrollY = window.pageYOffset;
-  // 이동할 대상의 위치 (Y값)
-  const targetScorllY = targetEl.getBoundingClientRect().top + browserScrollY;
-  // 스크롤 이동
-  window.scrollTo({ top: targetScorllY, behavior: 'smooth' });
-};
-// 스크롤 이벤트 연결하기
-// 'data-animation-scroll' 속성이
-// 'true'로 설정된 모든 요소를 선택하여 scollMoveEl 변수에 할당
-const scollMoveEl = document.querySelectorAll("[data-animation-scroll='true']");
-// 선택한 요소들에 클릭 이벤트를 등록
-for (let i = 0; i < scollMoveEl.length; i++) {
-  scollMoveEl[i].addEventListener('click', function (e) {
-    // 클릭된 요소의 'data-target' 속성 값을 가져와서 target 변수에 할당
-    const target = this.dataset.target;
-    // animationMove 함수를 호출하여 스크롤 애니메이션을 시작
-    animationMove(target);
-  });
-}
-
-
-
-
-
-
-
-
-
-
+		
+		- 텍스트 작성과 삭제 즉시 실행 함수
+		
+		(function () {
+			const spanEl = document.querySelector('main h2 span'); // span 태그로 접근
+			// 문자열 배열
+			const txtArr = [
+				'Web Publisher',
+				'Front-End Developer',
+				'Web UI Designer',
+				'UX Designer',
+				'Back-End Developer',
+			];
+			let index = 0; // index값 초기화
+			let currentTxt = txtArr[index].split('');
+			// 텍스트 출력되는 함수
+			function writeTxt() {
+				spanEl.textContent += currentTxt.shift(); // 글자를 한 글자씩 추가
+				if (currentTxt.length !== 0) {
+					// 만약 currentTxt 배열에 더 남아있는 글자가 있다면
+					// 일정 시간 뒤에 writeTxt 함수를 다시 호출
+					setTimeout(writeTxt, Math.floor(Math.random() * 100));
+				} else {
+					// currentTxt 배열에 더 남아있는 글자가 없다면
+					// span 요소의 텍스트를 글자 단위로 쪼개서 currentTxt 배열에 저장
+					currentTxt = spanEl.textContent.split('');
+					// 3초(3000ms) 뒤에 deleteTxt 함수를 호출
+					setTimeout(deleteTxt, 3000);
+				}
+			}
+			// 텍스트 삭제되는 함수
+			function deleteTxt() {
+				// currentTxt 배열에서 마지막 글자를 제거
+				currentTxt.pop();
+				// 현재 배열의 글자들을 문자열로 결합하고 span 요소의 텍스트로 설정
+				spanEl.textContent = currentTxt.join('');
+				// currentTxt 배열에 더 남은 글자가 있다면
+				// 잠시 후에 deleteTxt 함수를 재귀적으로 호출하여 글자를 계속 지움
+				if (currentTxt.length !== 0) {
+					setTimeout(deleteTxt, Math.floor(Math.random() * 100));
+				} else {
+					// currentTxt 배열에 더 남은 글자가 없다면
+					// 다음 텍스트로 넘어가기 위해 index 변수 업데이트
+					index = (index + 1) % txtArr.length;
+					// 해당 인덱스에 해당하는 텍스트를 가져와서 currentTxt 배열로 설정
+					currentTxt = txtArr[index].split('');
+					// 다음 텍스트를 쓰기 시작
+					writeTxt();
+				}
+			}
+			writeTxt();
+		})();
+		
+		
+		- 애니메이션 스크롤 이동
+		
+		const animationMove = function (selector) {
+			// select 매개변수로 이동할 대상 요소 노드 가져오기
+			const targetEl = document.querySelector(selector);
+			// 현재 브라우저의 스크롤 정보(Y값)
+			const browserScrollY = window.pageYOffset;
+			// 이동할 대상의 위치 (Y값)
+			const targetScorllY = targetEl.getBoundingClientRect().top + browserScrollY;
+			// 스크롤 이동
+			window.scrollTo({ top: targetScorllY, behavior: 'smooth' });
+		};
+		// 스크롤 이벤트 연결하기
+		// 'data-animation-scroll' 속성이
+		// 'true'로 설정된 모든 요소를 선택하여 scollMoveEl 변수에 할당
+		const scollMoveEl = document.querySelectorAll("[data-animation-scroll='true']");
+		// 선택한 요소들에 클릭 이벤트를 등록
+		for (let i = 0; i < scollMoveEl.length; i++) {
+			scollMoveEl[i].addEventListener('click', function (e) {
+				// 클릭된 요소의 'data-target' 속성 값을 가져와서 target 변수에 할당
+				const target = this.dataset.target;
+				// animationMove 함수를 호출하여 스크롤 애니메이션을 시작
+				animationMove(target);
+			});
+		}
