@@ -98,7 +98,7 @@ main h2 span::after {
 }
 ```
 - 수직선 깜빡임 애니메이션 키프레임 설정
-- 
+
 ```css
 @keyframes blink {
   0% {
